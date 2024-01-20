@@ -1,0 +1,1 @@
+pub struct RingBuffer<const N: usize> {}
