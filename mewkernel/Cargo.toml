@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-mewkernel-rbuf = { path = "../mewkernel-rbuf" }
 mewkernel-rt = { path = "../mewkernel-rt" }
 mewkernel-hal = { path = "../mewkernel-hal" }
+ringbuf = { version = "0.3.3", default-features = false }

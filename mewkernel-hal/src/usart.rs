@@ -43,6 +43,7 @@ pub enum Control {
     Receiver = 1 << 2,
     ParityControl = 1 << 10,
     TransmissionCompleteInterrupt = 1 << 6,
+    ReceiveRegisterNotEmptyInterrupt = 1 << 5,
 }
 
 #[derive(Copy, Clone)]
@@ -54,7 +55,8 @@ impl Control {
             | Self::Transmitter
             | Self::Receiver
             | Self::ParityControl
-            | Self::TransmissionCompleteInterrupt)
+            | Self::TransmissionCompleteInterrupt
+            | Self::ReceiveRegisterNotEmptyInterrupt)
             .0
     }
 }
@@ -112,6 +114,14 @@ impl Status {
 
     pub fn is_transmission_complete(&self) -> bool {
         (self.0 & (1 << 6)) > 0
+    }
+
+    pub fn is_receive_register_not_empty(&self) -> bool {
+        (self.0 & (1 << 5)) > 0
+    }
+
+    pub fn is_overrun_error(&self) -> bool {
+        (self.0 & (1 << 3)) > 0
     }
 }
 
@@ -199,6 +209,11 @@ impl Interface {
     pub unsafe fn write_byte(&self, ch: u8) {
         let data_register = self.get_data_register();
         data_register.write_volatile(ch as usize);
+    }
+
+    pub unsafe fn read_byte(&self) -> u8 {
+        let data_register = self.get_data_register();
+        data_register.read_volatile() as u8
     }
 
     pub unsafe fn get_status(&self) -> Status {
