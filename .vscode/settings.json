@@ -1,0 +1,4 @@
+{
+  "rust-analyzer.check.extraArgs": ["--target", "thumbv7em-none-eabi"],
+  "rust-analyzer.check.allTargets": false
+}
