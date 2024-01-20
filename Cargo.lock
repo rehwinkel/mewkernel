@@ -6,6 +6,7 @@ version = 3
 name = "mewkernel"
 version = "0.1.0"
 dependencies = [
+ "mewkernel-hal",
  "mewkernel-rbuf",
  "mewkernel-rt",
 ]

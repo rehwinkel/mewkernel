@@ -6,3 +6,4 @@ edition = "2021"
 [dependencies]
 mewkernel-rbuf = { path = "../mewkernel-rbuf" }
 mewkernel-rt = { path = "../mewkernel-rt" }
+mewkernel-hal = { path = "../mewkernel-hal" }
