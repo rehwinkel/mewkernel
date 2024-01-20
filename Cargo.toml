@@ -1,5 +1,5 @@
 [workspace]
-members = ["mewkernel", "mewkernel-rbuf", "mewkernel-rt"]
+members = ["mewkernel", "mewkernel-rbuf", "mewkernel-rt", "mewkernel-hal"]
 resolver = "2"
 
 [profile.dev]

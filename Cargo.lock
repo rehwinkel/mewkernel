@@ -11,6 +11,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "mewkernel-hal"
+version = "0.1.0"
+
+[[package]]
 name = "mewkernel-rbuf"
 version = "0.1.0"
 
