@@ -7,8 +7,13 @@ name = "mewkernel"
 version = "0.1.0"
 dependencies = [
  "mewkernel-rbuf",
+ "mewkernel-rt",
 ]
 
 [[package]]
 name = "mewkernel-rbuf"
+version = "0.1.0"
+
+[[package]]
+name = "mewkernel-rt"
 version = "0.1.0"

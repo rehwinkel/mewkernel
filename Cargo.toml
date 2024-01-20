@@ -1,3 +1,9 @@
 [workspace]
-members = ["mewkernel", "mewkernel-rbuf"]
+members = ["mewkernel", "mewkernel-rbuf", "mewkernel-rt"]
 resolver = "2"
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"

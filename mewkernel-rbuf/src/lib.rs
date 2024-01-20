@@ -1,3 +1,5 @@
+#![no_std]
+
 pub struct RingBuffer<const SIZE: usize> {
     read: usize,
     write: usize,
