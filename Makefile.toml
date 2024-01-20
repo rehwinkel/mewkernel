@@ -1,0 +1,25 @@
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+[tasks.build]
+command = "cargo"
+args = ["build", "--bins", "--release"]
+dependencies = ["clean"]
+
+[tasks.img]
+workspace = false
+command = "arm-none-eabi-objcopy"
+args = [
+    "-O",
+    "binary",
+    "target/thumbv7em-none-eabi/release/mewkernel",
+    "target/mewkernel.bin",
+]
+dependencies = ["build"]
+
+[tasks.flash]
+workspace = false
+command = "st-flash"
+args = ["write", "target/mewkernel.bin", "0x08000000"]
+dependencies = ["img"]
